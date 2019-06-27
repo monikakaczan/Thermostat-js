@@ -57,6 +57,40 @@ describe("Thermostat", function() {
   });
 
   it("has a reset function which brings the temperature back to 20 degrees", function() {
+    var i;
+    for (i=15; i < 17; i++) {
+      thermostat.up();
+    }
     expect(thermostat.reset()).toEqual(20);
+  });
+
+  describe("displays the user the energy usage", function() {
+    describe("when the temperature is below 18 degrees", function() {
+      it("is a low usage mode", function() {
+        var i;
+        for(i= 13; i < 17; i++) {
+          thermostat.down();
+        }
+        expect(thermostat.energyUsage()).toEqual("low-usage");
+      });
+    });
+  describe("if the temperature is between 18 and 25 degrees", function() {
+    it("is a medium usage", function() {
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
+    });
+  });
+
+  describe("if the temperature is over 25 degrees", function() {
+    it("is a high usage", function() {
+      thermostat.powerSavingOff();
+      var i;
+      for(i = 1; i < 7; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual("high-usage");
+    })
   })
+  })
+
+
 });

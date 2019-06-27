@@ -1,9 +1,11 @@
 function Thermostat() {
   this.savingSwitch = true;
+  this.medium_energy_usage_mode = 18;
   const DEFAULTTEMP = 20;
   const MINTEMP = 10;
   const MAXTEMPONPOWERSAVING= 25;
   const MAXTEMPONPOWERSAVINGOFF = 32;
+
 
   this.defaultTemperature = function() {
       return DEFAULTTEMP;
@@ -44,6 +46,16 @@ function Thermostat() {
 
   this.reset = function() {
     return DEFAULTTEMP;
+  }
+
+  this.energyUsage = function() {
+    if (this.temp < this.medium_energy_usage_mode) {
+      return "low-usage";
+    } else if (this.temp >= this.medium_energy_usage_mode && this.temp <= MAXTEMPONPOWERSAVING) {
+      return "medium-usage";
+    } else {
+    return "high-usage"
+    }
   }
 
 };
