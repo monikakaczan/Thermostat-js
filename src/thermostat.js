@@ -1,6 +1,7 @@
 function Thermostat() {
   this.savingSwitch = true;
   this.medium_energy_usage_mode = 18;
+  this.defaulttemp = 20;
   const DEFAULTTEMP = 20;
   const MINTEMP = 10;
   const MAXTEMPONPOWERSAVING= 25;
@@ -9,9 +10,12 @@ function Thermostat() {
 
   this.defaultTemperature = function() {
       return DEFAULTTEMP;
+      //return this.defaulttemp;
   };
 
   this.temp = DEFAULTTEMP;
+
+  //this.defaulttemp=20;
 
   this.up = function(){
   // if temp > 25  and power switch is on then we can't have it higher
@@ -38,6 +42,11 @@ function Thermostat() {
 
   this.powerSavingOn = function(){
     this.savingSwitch = true
+    ///
+    // if (this.temp >25 && this.savingSwitch=== false) {
+    //   this.temp = 25 ;
+    // }
+
   };
 
   this.powerSavingOff = function(){
@@ -45,8 +54,9 @@ function Thermostat() {
   };
 
   this.reset = function() {
-    return DEFAULTTEMP;
-  }
+
+    this.temp =20
+  };
 
   this.energyUsage = function() {
     if (this.temp < this.medium_energy_usage_mode) {

@@ -1,7 +1,4 @@
-// Thermostat starts at 20 degrees
-
 describe("Thermostat", function() {
-
   let thermostat;
 
   beforeEach(function(){
@@ -64,33 +61,25 @@ describe("Thermostat", function() {
     expect(thermostat.reset()).toEqual(20);
   });
 
-  describe("displays the user the energy usage", function() {
-    describe("when the temperature is below 18 degrees", function() {
-      it("is a low usage mode", function() {
-        var i;
-        for(i= 13; i < 17; i++) {
-          thermostat.down();
-        }
-        expect(thermostat.energyUsage()).toEqual("low-usage");
-      });
+  it("has a low usage mode", function() {
+    var i;
+    for(i= 13; i < 17; i++) {
+        thermostat.down();
+    }
+      expect(thermostat.energyUsage()).toEqual("low-usage");
     });
-  describe("if the temperature is between 18 and 25 degrees", function() {
-    it("is a medium usage", function() {
+
+    it("has a medium usage mode", function() {
       expect(thermostat.energyUsage()).toEqual("medium-usage");
     });
-  });
 
-  describe("if the temperature is over 25 degrees", function() {
-    it("is a high usage", function() {
+    it("is a high usage mode, over 25 degrees", function() {
       thermostat.powerSavingOff();
       var i;
-      for(i = 1; i < 7; i++) {
+      for(i = 1; i < 27; i++) {
         thermostat.up();
       }
       expect(thermostat.energyUsage()).toEqual("high-usage");
     })
-  })
-  })
-
 
 });
