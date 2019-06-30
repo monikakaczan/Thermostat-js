@@ -15,7 +15,7 @@ In this task I was challenged to build a functional Thermostat using JavaScript.
 - [x] You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
 
 ### Technologies used:
-JavaScript, Jasmine
+JavaScript, Jasmine, jQuery 
 
 ### How to run: 
 Clone this repository <br>
