@@ -1,6 +1,6 @@
 # Thermostat-js
 
-In this task I was challenged to build a functional Thermostat using JavaScript. 
+In this task I was challenged to build a functional Thermostat using JavaScript. API delivers information about the weather in user's city and based on that they can set up the temperature inside. 
 
 ### Specification:
 
@@ -25,4 +25,8 @@ git@github.com:monikakaczan/Thermostat-js.git
 Jasmine for testing:
 ```
 open SpecRunner.html in Chrome
+```
+Run the app: 
+```
+Thermostat.html in Chrome
 ```
